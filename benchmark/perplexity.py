@@ -40,7 +40,7 @@ def get_perplexity(loss: list[float], length: list[int]):
     return exp(average_loss)
 
 def main():
-    model_path = "/path/to/your/model"
+    model_path = "/home/zxh/zxh/LLM_models/DeepSeek-R1-Distill-Qwen-1.5B"
     tokenizer = AutoTokenizer.from_pretrained(model_path)
     model = AutoModelForCausalLM.from_pretrained(model_path, dtype=torch.float16).to("cuda")
 
