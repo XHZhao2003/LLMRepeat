@@ -46,9 +46,10 @@ sampling_params = SamplingParams(
 ```
 ```shell
 python evaluate_mmlu.py \
-    --model_path ../LLM_models/DeepSeek-R1-Distill-Qwen-1.5B \
+    --model_path ../LLM_models/Qwen3-4B \
     --parquet_file dataset/mmlu/test.parquet \
-    --output_file output/DeepSeek-R1-Distill-Qwen-1.5B-mmlu.jsonl \
+    --output_file output/Qwen3-4B-mmlu.jsonl \
+    --add_prompt \
     --max_new_tokens 256
 ```
 
