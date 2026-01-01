@@ -1,3 +1,5 @@
+import argparse
+
 from numpy import exp
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
@@ -40,7 +42,11 @@ def get_perplexity(loss: list[float], length: list[int]):
     return exp(average_loss)
 
 def main():
-    model_path = "/home/zxh/zxh/LLM_models/DeepSeek-R1-Distill-Qwen-1.5B"
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--model_path", type=str, required=True, help="本地模型路径或 Hugging Face 模型 ID")
+    args = parser.parse_args()
+    
+    model_path = args.model_path
     tokenizer = AutoTokenizer.from_pretrained(model_path)
     model = AutoModelForCausalLM.from_pretrained(model_path, dtype=torch.float16).to("cuda")
 

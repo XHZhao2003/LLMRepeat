@@ -6,13 +6,13 @@ os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
 from datasets import load_dataset
 
 # 指定缓存目录
-cache_dir = "dataset/wikitext"
-dataset_name = 'wikitext-103-v1'
+cache_dir = "dataset/mmlu"
+dataset_name = 'cais/mmlu'
 
 # 加载数据集
 test_dataset = load_dataset(
-    "wikitext",
     dataset_name,
+    'all',
     split="test",
     cache_dir=cache_dir,
     download_mode="reuse_cache_if_exists"  # 避免重复下载
